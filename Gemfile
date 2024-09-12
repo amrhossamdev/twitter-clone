@@ -16,6 +16,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+gem 'ostruct'
 
 gem "sassc-rails"
 gem "rails-controller-testing"
@@ -48,6 +49,18 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "rails-controller-testing"
+  gem "minitest"
+  gem "minitest-reporters"
+  gem "guard"
+  gem "guard-minitest"
+end
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

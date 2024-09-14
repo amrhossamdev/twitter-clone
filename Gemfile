@@ -18,6 +18,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem 'ostruct'
 gem 'bcrypt', '~> 3.1.7'
+gem 'pg'
 
 gem "sassc-rails"
 gem "rails-controller-testing"

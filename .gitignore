@@ -37,3 +37,4 @@
 /.idea/vcs.xml
 
 /config/credentials/production.key
+et --soft <commit_hash>

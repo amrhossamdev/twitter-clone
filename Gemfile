@@ -17,7 +17,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem 'ostruct'
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 
 gem "sassc-rails"
 gem "rails-controller-testing"

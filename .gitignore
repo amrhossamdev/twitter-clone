@@ -35,6 +35,7 @@
 /config/master.key
 /.idea/workspace.xml
 /.idea/vcs.xml
+/.idea/
 
 /config/credentials/production.key
 et --soft <commit_hash>

@@ -109,7 +109,28 @@ footer {
     }
   }
 }
-.debug_dump{
+
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+
+    ul {
+      float: none;
+      padding: 0;
+
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.debug_dump {
   clear: both;
   float: left;
   width: 100%;
@@ -132,6 +153,7 @@ input {
 
 #error_explanation {
   color: red;
+
   ul {
     color: red;
     margin: 0 0 30px 0;
@@ -140,6 +162,7 @@ input {
 
 .field_with_errors {
   @extend .has-error;
+
   .form-control {
     color: $state-danger-text;
   }

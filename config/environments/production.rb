@@ -102,6 +102,4 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   # config/application.rb
 
-  # for prod
-  config.assets.digest = true
 end

@@ -103,5 +103,5 @@ Rails.application.configure do
   # config/application.rb
 
   # for prod
-   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.assets.digest = true
 end

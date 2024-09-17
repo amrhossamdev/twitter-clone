@@ -10,6 +10,11 @@ module SessionsHelper
     @current_user = nil
   end
 
+  # Return true if the given user if the current user
+  def current_user?(user)
+    user && user == current_user
+  end
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
@@ -39,6 +44,11 @@ module SessionsHelper
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
+  end
+
+  # Store the url trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
   end
 end
 

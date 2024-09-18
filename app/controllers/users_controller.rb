@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
-
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
 
   def show
     @user = User.find(params[:id])
@@ -23,11 +23,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    if user.destroy
+      flash[:success] = "User deleted"
+    else
+      flash[:danger] = "User could not be deleted"
+    end
+    redirect_to users_url, status: :see_other
+  end
+
   def edit
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
 
   def update
@@ -62,4 +72,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
+  def admin_user
+    unless current_user.admin?
+      flash[:danger] = "Access Denied."
+      redirect_to root_url
+    end
+  end
 end

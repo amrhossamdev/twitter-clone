@@ -16,10 +16,12 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-gem 'ostruct'
-gem 'bcrypt', '~> 3.1.7'
-gem 'pg'
-
+gem "ostruct"
+gem "bcrypt", "~> 3.1.7"
+gem "pg"
+gem "faker"
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"
 gem "sassc-rails"
 gem "rails-controller-testing"
 gem "bootstrap-sass", "~> 3.4.1"
@@ -62,7 +64,6 @@ group :test do
   gem "guard"
   gem "guard-minitest"
 end
-
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

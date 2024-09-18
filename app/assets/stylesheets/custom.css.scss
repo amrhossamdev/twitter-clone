@@ -1,16 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
-
-/* universal */
+/* variables */
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+$gray-medium-light: #eaeaea;
+
+/* universal */
+
+$light-gray: #777;
+
+html {
+  overflow-y: scroll;
 }
 
 body {
@@ -25,17 +31,14 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -44,6 +47,8 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: normal;
+  color: $gray-light;
 }
 
 h2 {
@@ -60,8 +65,15 @@ p {
   line-height: 1.7em;
 }
 
+.center {
+  text-align: center;
 
-/* header */
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/*  hearder */
 
 #logo {
   float: left;
@@ -74,9 +86,13 @@ p {
   font-weight: bold;
 
   &:hover {
-    color: white;
+    color: #fff;
     text-decoration: none;
   }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #222;
 }
 
 /* footer */
@@ -85,14 +101,18 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  color: #777;
 
   a {
-    color: $gray;
+    color: $gray-light;
 
     &:hover {
       color: $gray-darker;
     }
+  }
+
+  a:hover {
+    color: #222;
   }
 
   small {
@@ -102,11 +122,11 @@ footer {
   ul {
     float: right;
     list-style: none;
+  }
 
-    li {
-      float: left;
-      margin-left: 15px;
-    }
+  ul li {
+    float: left;
+    margin-left: 15px;
   }
 }
 
@@ -130,17 +150,62 @@ footer {
   }
 }
 
+/* miscellaneous */
+
 .debug_dump {
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
 }
 
 /* forms */
-
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -152,10 +217,10 @@ input {
 }
 
 #error_explanation {
-  color: red;
+  color: red !important;
 
   ul {
-    color: red;
+    color: red !important;
     margin: 0 0 30px 0;
   }
 }
@@ -164,7 +229,7 @@ input {
   @extend .has-error;
 
   .form-control {
-    color: $state-danger-text;
+    color: $state-danger-text !important;
   }
 }
 
@@ -173,3 +238,32 @@ input {
 .dropdown-menu.active {
   display: block;
 }
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+

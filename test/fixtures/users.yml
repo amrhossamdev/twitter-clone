@@ -4,6 +4,8 @@ amr:
   name: Amr Hossam
   email: amr@gmail.com
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
   password_digest: <%= User.digest("password")  %>
 
 amr2:

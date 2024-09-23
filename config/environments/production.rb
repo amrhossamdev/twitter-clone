@@ -15,6 +15,21 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'https://simpleapp-production-5d8a.up.railway.app/'
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => 'apikey',
+    :password       => ENV['SENDGRID_API_KEY'],
+    :domain         => 'railway.app',
+    :enable_starttls_auto => true
+  }
+
   #Rails.application.routes.default_url_options = { host: 'simpleapp-production-5d8a.up.railway.app/', protocol: 'https' }
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment

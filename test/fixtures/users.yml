@@ -11,6 +11,8 @@ amr:
 amr2:
   name: Amr2
   email: foo@gmail.com
+  activated: true
+  activated_at: <%= Time.zone.now %>
   password_digest: <%= User.digest("password")  %>
 
 lana:

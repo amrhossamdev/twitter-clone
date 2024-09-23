@@ -4,8 +4,6 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.account_activation.subject
 
-  default from: ENV["email_address"]
-
   def account_activation(user)
     @user = user
     mail to: user.email, subject: "Account activation"

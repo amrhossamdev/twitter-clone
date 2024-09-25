@@ -1,7 +1,6 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:amr)
     @other_user = users(:amr2)
@@ -67,5 +66,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
-
 end

@@ -1,7 +1,6 @@
 require "test_helper"
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
-
   def setup
     @admin = users(:amr)
     @non_admin = users(:amr2)
@@ -31,6 +30,5 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_template "users/index"
     assert_select "a", text: "delete", count: 0
-
   end
 end

@@ -1,17 +1,15 @@
 require "test_helper"
 
 class UsersLogin < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:amr)
   end
 end
 
 class InvalidPasswordTest < UsersLogin
-
   test "login path" do
     get login_path
-    assert_template 'sessions/new'
+    assert_template "sessions/new"
   end
 
   test "login with invalid information" do
@@ -34,7 +32,6 @@ class ValidLogin < UsersLogin
 end
 
 class ValidLoginTest < ValidLogin
-
   test "valid login" do
     assert is_logged_in?
     assert_redirected_to @user
@@ -56,7 +53,6 @@ class ValidLoginTest < ValidLogin
   end
 
   class LogoutTest < Logout
-
     test "successful logout" do
       assert_not is_logged_in?
       assert_redirected_to root_url

@@ -69,7 +69,7 @@ class PasswordFormTest < PasswordResetForm
             params: { email: @reset_user.email,
                       user: { password: "foobaz",
                               password_confirmation: "barquux" } }
-      assert_select "div.error_explanation"
+      assert_select "div#error_explanation"
     end
 
     test "update with empty password" do
@@ -77,7 +77,7 @@ class PasswordFormTest < PasswordResetForm
             params: { email: @reset_user.email,
                       user: { password: "",
                               password_confirmation: "" } }
-      assert_select "div.error_explanation"
+      assert_select "div#error_explanation"
     end
 
     test "update with valid password and confirmation" do

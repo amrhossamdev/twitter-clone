@@ -2,10 +2,15 @@
 
 first_micropost:
   content: "Lorem ipsum"
-  user: amr  # Ensure 'amr' exists in users.yml
+  user: amr
   created_at: <%= 10.minutes.ago %>
 
 second_micropost:
   content: "Second post content"
-  user: amr  # 'amr' must also exist in users.yml
+  user: amr
   created_at: <%= 5.minutes.ago %>
+
+most_recent:
+  content: "Reality is so sad."
+  user: amr
+  created_at: <%= Time.zone.now %>

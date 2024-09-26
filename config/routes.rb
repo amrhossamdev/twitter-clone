@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :password_resets, only: [ :new, :create, :edit, :update ]
   # Microposts
   resources :microposts, only: [ :create, :destroy ]
+  get "/microposts", to: "static_pages#home"
 end

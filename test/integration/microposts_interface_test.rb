@@ -1,7 +1,6 @@
 require "test_helper"
 
 class MicropostsInterface < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:amr)
     log_in_as(@user)
@@ -9,7 +8,6 @@ class MicropostsInterface < ActionDispatch::IntegrationTest
 end
 
 class MicropostsInterfaceTest < MicropostsInterface
-
   test "should paginate microposts" do
     get root_path
     assert_select "div.pagination"

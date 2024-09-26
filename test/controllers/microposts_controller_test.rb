@@ -29,5 +29,4 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :see_other
     assert_redirected_to root_url
   end
-
 end

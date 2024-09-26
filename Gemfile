@@ -18,9 +18,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "ostruct"
 gem "bcrypt", "~> 3.1.7"
-gem "pg"
 gem "faker"
-gem "will_paginate",           "3.3.1"
+gem "will_paginate", "3.3.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "sassc-rails"
 gem "rails-controller-testing"
@@ -78,3 +77,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :production do
+  gem "pg"
+  gem "aws-sdk-s3", require: false
+end
+

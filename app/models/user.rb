@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id",
+           dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -23,7 +27,7 @@ class User < ApplicationRecord
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_digest, User.digest(reset_token))
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
@@ -70,6 +74,19 @@ class User < ApplicationRecord
   def feed
     Micropost.where("user_id = ?", id)
   end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    self.following.include?(other_user)
+  end
+
   private
 
   # Converts email to all lower-case.

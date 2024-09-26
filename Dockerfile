@@ -17,10 +17,10 @@ RUN apt-get update -qq && \
         curl \
         libjemalloc2 \
         libvips \
+        imagemagick \
         sqlite3 \
         libpq-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
 
 # Set production environment
 ENV RAILS_ENV="production" \
